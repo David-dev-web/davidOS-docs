@@ -227,19 +227,20 @@ window.addEventListener('load', addCopyButtons);
 
 <div id="cookie-consent-modal" class="cc-overlay" style="display: none;">
   <div class="cc-modal">
-    <h2>Ihre Privatsphäre ist uns wichtig</h2>
+    <h2>Your Privacy Matters</h2>
     <p>
-      Wir verwenden den <code>localStorage</code> Ihres Browsers, um Ihre Benutzererfahrung zu verbessern, indem wir Ihre Design-Auswahl (Light/Dark Mode) speichern.
+      This website uses your browser's <code>localStorage</code> to enhance your experience by remembering your theme choice (Light/Dark Mode).
     </p>
     <p>
-      Wenn Sie auf <b>"Akzeptieren"</b> klicken, stimmen Sie dieser Speicherung zu. Wenn Sie <b>"Ablehnen"</b>, wird Ihre Auswahl nicht gespeichert und die Seite bei jedem Besuch im Standard-Design geladen.
+      By clicking <b>"Accept"</b>, you consent to this storage. If you <b>"Decline"</b>, your choice will not be saved, and the site will load with the default theme on each visit.
     </p>
     <div class="cc-buttons">
-      <button id="cc-btn-decline" class="cc-btn cc-btn-decline">Ablehnen</button>
-      <button id="cc-btn-accept" class="cc-btn cc-btn-accept">Akzeptieren</button>
+      <button id="cc-btn-decline" class="cc-btn cc-btn-decline">Decline</button>
+      <button id="cc-btn-accept" class="cc-btn cc-btn-accept">Accept</button>
     </div>
   </div>
 </div>
+
 
 <script>
   // Diese Funktion wird jetzt global gebraucht, damit der Dark-Mode-Switcher sie aufrufen kann
