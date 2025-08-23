@@ -55,3 +55,8 @@ After installing DavidOS, the system will initially have the default look. To un
 **Done!** Your desktop will now transform into the classic Windows 95 look. Enjoy DavidOS!
 
 {% include banner.html %}
+---
+<p style="text-align: center; font-size: 12px;">
+  <a href="javascript:showThemeChooser( )">Change Theme</a>
+</p>
+
