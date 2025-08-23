@@ -153,5 +153,50 @@ After installing DavidOS, the system will initially have the default look. To un
 </script>
 <!-- DARK MODE SWITCHER CODE - END -->
 
+<!-- CODE FÜR COPY-BUTTONS - START -->
+<script>
+// Funktion, um die Buttons zu erstellen
+function addCopyButtons() {
+    // Finde alle Code-Blöcke auf der Seite
+    const codeBlocks = document.querySelectorAll('pre');
+
+    codeBlocks.forEach(block => {
+        // Erstelle den Button
+        const button = document.createElement('button');
+        button.innerText = 'Copy';
+        button.style.position = 'absolute';
+        button.style.top = '5px';
+        button.style.right = '5px';
+        button.style.padding = '5px 8px';
+        button.style.fontSize = '12px';
+        button.style.backgroundColor = '#333';
+        button.style.color = 'white';
+        button.style.border = '1px solid #555';
+        button.style.borderRadius = '4px';
+        button.style.cursor = 'pointer';
+        button.style.opacity = '0.7';
+
+        // Mache den Container relativ, damit der Button positioniert werden kann
+        block.style.position = 'relative';
+        block.appendChild(button);
+
+        // Füge die Klick-Funktion hinzu
+        button.addEventListener('click', () => {
+            const code = block.querySelector('code').innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                button.innerText = 'Copied!';
+                setTimeout(() => {
+                    button.innerText = 'Copy';
+                }, 2000); // Text nach 2 Sekunden zurücksetzen
+            });
+        });
+    });
+}
+
+// Führe die Funktion aus, sobald die Seite geladen ist
+window.addEventListener('load', addCopyButtons);
+</script>
+<!-- CODE FÜR COPY-BUTTONS - END -->
+
 
 
