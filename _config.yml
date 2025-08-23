@@ -4,3 +4,5 @@ theme: jekyll-theme-minimal
 # Wir geben der Seite einen Titel
 title: DavidOS Documentation & Download
 description: The official installation guide and download page for DavidOS.
+# Wir fügen diesen Kommentar hinzu, um den Cache von GitHub zu leeren.
+# Zeitstempel: [24.08.2025 00:06]
