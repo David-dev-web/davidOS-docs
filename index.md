@@ -54,7 +54,6 @@ After installing DavidOS, the system will initially have the default look. To un
 
 **Done!** Your desktop will now transform into the classic Windows 95 look. Enjoy DavidOS!
 
-{% include banner.html %}
 <!-- DARK MODE SWITCHER CODE - START -->
 <style>
     /* Das Aussehen des Schalters */
