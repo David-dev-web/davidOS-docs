@@ -9,7 +9,6 @@ DavidOS is an Ubuntu-based operating system that combines the stability and secu
 
 ## IMPORTANT: How to activate the Chicago95 (Win95) Theme
 
-... (der Rest deines Textes bleibt gleich) ...
 
 
 After installing DavidOS, the system will initially have the default look. To unlock the full retro experience, please follow these simple steps.
