@@ -47,3 +47,5 @@ After installing DavidOS, the system will initially have the default look. To un
     *   Shell
 
 **Done!** Your desktop will now transform into the classic Windows 95 look. Enjoy DavidOS!
+
+{% include banner.html %}
