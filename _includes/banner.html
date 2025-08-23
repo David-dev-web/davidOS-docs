@@ -40,24 +40,21 @@
   <button id="dark-mode-btn" class="banner-button">Dark Mode</button>
 </div>
 
-<!-- 3. JavaScript: Die Logik hinter dem Banner -->
+<!-- 3. JavaScript (NEUE VERSION): Die Logik, die mit dem Theme spricht -->
 <script>
+  // Diese Funktion wird vom "Just the Docs"-Theme bereitgestellt
+  // Wir müssen sie nur aufrufen.
+  // jtd.setTheme('dark' oder 'light')
+
   document.addEventListener('DOMContentLoaded', function() {
     const banner = document.getElementById('theme-banner');
     const lightBtn = document.getElementById('light-mode-btn');
     const darkBtn = document.getElementById('dark-mode-btn');
-    const body = document.body;
 
-    // Funktion, um das Theme zu setzen
-    function setTheme(theme) {
-      if (theme === 'dark') {
-        body.classList.remove('light-mode');
-        body.classList.add('dark-mode');
-      } else {
-        body.classList.remove('dark-mode');
-        body.classList.add('light-mode');
-      }
-      // Speichere die Wahl des Benutzers
+    // Funktion, um das Theme zu setzen UND die Wahl zu speichern
+    function chooseTheme(theme) {
+      jtd.setTheme(theme);
+      // Speichere die Wahl des Benutzers im Browser
       localStorage.setItem('themeChoice', theme);
       // Verstecke das Banner
       banner.style.display = 'none';
@@ -65,11 +62,11 @@
 
     // Event Listener für die Buttons
     lightBtn.addEventListener('click', function() {
-      setTheme('light');
+      chooseTheme('light');
     });
 
     darkBtn.addEventListener('click', function() {
-      setTheme('dark');
+      chooseTheme('dark');
     });
 
     // Prüfe, ob der Benutzer schon eine Wahl getroffen hat
@@ -77,9 +74,9 @@
     if (!userChoice) {
       // Wenn keine Wahl getroffen wurde, zeige das Banner
       banner.style.display = 'block';
-    } else {
-        // Wenn schon eine Wahl getroffen wurde, setze das Theme entsprechend
-        // (Diese Logik wird vom Theme selbst übernommen, wir müssen hier nichts tun)
     }
+    // Wenn schon eine Wahl getroffen wurde, hat das Theme sie bereits geladen.
+    // Wir müssen nichts weiter tun.
   });
 </script>
+
