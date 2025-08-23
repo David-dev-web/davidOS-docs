@@ -198,81 +198,80 @@ window.addEventListener('load', addCopyButtons);
 </script>
 <!-- CODE FÜR COPY-BUTTONS - END -->
 
-<!-- MODAL POPUP CODE - START -->
+<!-- ECHTES COOKIE-BANNER (MODAL) - START -->
 <style>
-  /* Der halb-transparente Hintergrund, der alles blockiert */
-  .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Dunkler, halb-transparenter Hintergrund */
-    z-index: 2999; /* Sehr hoher z-index, um über allem zu liegen */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .cc-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2999; display: flex; justify-content: center; align-items: center;
   }
-
-  /* Das eigentliche Popup-Fenster */
-  .modal-content {
-    background-color: #161b22; /* Passend zum Dark Mode Theme */
-    color: #c9d1d9;
-    padding: 25px 30px;
-    border-radius: 8px;
-    border: 1px solid #30363d;
+  .cc-modal {
+    background-color: #161b22; color: #c9d1d9; padding: 25px 30px;
+    border-radius: 8px; border: 1px solid #30363d;
     box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    max-width: 500px;
-    width: 90%;
-    text-align: center;
+    max-width: 550px; width: 90%; text-align: left;
   }
-  .modal-content h2 {
-    color: #58a6ff;
-    margin-top: 0;
+  .cc-modal h2 { color: #58a6ff; margin-top: 0; }
+  .cc-modal p { color: #c9d1d9 !important; line-height: 1.6; }
+  .cc-modal code { background-color: #313843; padding: 2px 4px; border-radius: 3px; }
+  .cc-buttons { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+  .cc-btn {
+    border: none; padding: 10px 20px; border-radius: 5px;
+    cursor: pointer; font-weight: bold; font-size: 14px;
   }
-  .modal-content p {
-    color: #c9d1d9 !important; /* Wichtig, um die Textfarbe zu erzwingen */
-    line-height: 1.6;
-  }
-  .modal-btn {
-    background-color: #58a6ff;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 15px;
-  }
+  .cc-btn-accept { background-color: #58a6ff; color: #fff; }
+  .cc-btn-decline { background-color: #444; color: #eee; }
 </style>
 
-<div id="consent-modal" class="modal-overlay" style="display: none;">
-  <div class="modal-content">
-    <h2>Hinweis zur Datenspeicherung</h2>
+<div id="cookie-consent-modal" class="cc-overlay" style="display: none;">
+  <div class="cc-modal">
+    <h2>Ihre Privatsphäre ist uns wichtig</h2>
     <p>
-      Diese Webseite verwendet den <code>localStorage</code> deines Browsers, um deine Design-Auswahl (Light/Dark Mode) für zukünftige Besuche zu speichern. Es werden keine persönlichen Daten gesammelt oder Cookies von Drittanbietern gesetzt.
+      Wir verwenden den <code>localStorage</code> Ihres Browsers, um Ihre Benutzererfahrung zu verbessern, indem wir Ihre Design-Auswahl (Light/Dark Mode) speichern.
     </p>
-    <button id="modal-accept-btn" class="modal-btn">Ich habe verstanden</button>
+    <p>
+      Wenn Sie auf <b>"Akzeptieren"</b> klicken, stimmen Sie dieser Speicherung zu. Wenn Sie <b>"Ablehnen"</b>, wird Ihre Auswahl nicht gespeichert und die Seite bei jedem Besuch im Standard-Design geladen.
+    </p>
+    <div class="cc-buttons">
+      <button id="cc-btn-decline" class="cc-btn cc-btn-decline">Ablehnen</button>
+      <button id="cc-btn-accept" class="cc-btn cc-btn-accept">Akzeptieren</button>
+    </div>
   </div>
 </div>
 
 <script>
-  (function() {
-    const modal = document.getElementById('consent-modal');
-    const acceptBtn = document.getElementById('modal-accept-btn');
+  // Diese Funktion wird jetzt global gebraucht, damit der Dark-Mode-Switcher sie aufrufen kann
+  function canStoreThemeChoice() {
+    return localStorage.getItem('cookieConsent') === 'accepted';
+  }
 
-    // Prüfen, ob die Zustimmung bereits gegeben wurde
-    if (!localStorage.getItem('consentGiven')) {
+  // Initialisierungslogik für das Banner
+  (function() {
+    const modal = document.getElementById('cookie-consent-modal');
+    const acceptBtn = document.getElementById('cc-btn-accept');
+    const declineBtn = document.getElementById('cc-btn-decline');
+
+    function hideModal() {
+      modal.style.display = 'none';
+    }
+
+    // Nur anzeigen, wenn noch keine Entscheidung getroffen wurde
+    if (!localStorage.getItem('cookieConsent')) {
       modal.style.display = 'flex';
     }
 
-    // Event-Listener für den Akzeptieren-Button
     acceptBtn.addEventListener('click', () => {
-      modal.style.display = 'none';
-      localStorage.setItem('consentGiven', 'true');
+      localStorage.setItem('cookieConsent', 'accepted');
+      hideModal();
+    });
+
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      // Alte Theme-Einstellungen löschen, falls vorhanden
+      localStorage.removeItem('theme');
+      hideModal();
     });
   })();
 </script>
-<!-- MODAL POPUP CODE - END -->
+<!-- ECHTES COOKIE-BANNER (MODAL) - END -->
 
