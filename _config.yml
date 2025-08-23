@@ -3,12 +3,5 @@ title: DavidOS Documentation
 description: "Installation instructions for DavidOS"
 
 # Theme settings
-remote_theme: "pmarsceill/just-the-docs"
+theme: jekyll-theme-minimal
 
-# Enable dark mode toggle
-just_the_docs:
-  color_scheme: "dark" # Can be dark, light, or custom
-  # Aux links for the header
-  aux_links:
-    "DavidOS on SourceForge":
-      - "https://sourceforge.net/projects/davidos-1-0/" # Ersetze dies mit deinem echten Link
