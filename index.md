@@ -8,9 +8,15 @@ DavidOS is an Ubuntu-based operating system that combines the stability and secu
 
 ---
 
+## Download DavidOS v1.0
+
+[**CLICK HERE TO GO TO THE DOWNLOAD PAGE**](https://github.com/David-dev-web/davidos-docs/releases/latest )
+
+*This will take you to the latest release on GitHub where you can download the necessary files.*
+
+---
+
 ## IMPORTANT: How to activate the Chicago95 (Win95) Theme
-
-
 
 After installing DavidOS, the system will initially have the default look. To unlock the full retro experience, please follow these simple steps.
 
@@ -38,7 +44,7 @@ After installing DavidOS, the system will initially have the default look. To un
 
 ### Step 3: Activate the Theme
 
-1.  Open the **"Tweaks"** application (search for "Optimierungen" or "Tweaks" ).
+1.  Open the **"Tweaks"** application (search for "Optimierungen" or "Tweaks"  ).
 2.  Go to the **"Extensions"** tab and switch **"User themes"** to **ON**.
 3.  Go to the **"Appearance"** tab. Now, select **`Chicago95`** from the dropdown menu for the following four items:
     *   Applications
