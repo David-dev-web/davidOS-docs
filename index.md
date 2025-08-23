@@ -10,7 +10,7 @@ DavidOS is an Ubuntu-based operating system that combines the stability and secu
 
 ## Download DavidOS v1.0
 
-[**CLICK HERE TO GO TO THE DOWNLOAD PAGE**](https://github.com/David-dev-web/davidos-docs/releases/latest  )
+[**CLICK HERE TO GO TO THE DOWNLOAD PAGE**](https://github.com/David-dev-web/davidos-docs/releases/latest )
 
 *This will take you to the latest release on GitHub where you can download the necessary files.*
 
@@ -44,7 +44,7 @@ After installing DavidOS, the system will initially have the default look. To un
 
 ### Step 3: Activate the Theme
 
-1.  Open the **"Tweaks"** application (search for "Optimierungen" or "Tweaks"   ).
+1.  Open the **"Tweaks"** application (search for "Optimierungen" or "Tweaks" ).
 2.  Go to the **"Extensions"** tab and switch **"User themes"** to **ON**.
 3.  Go to the **"Appearance"** tab. Now, select **`Chicago95`** from the dropdown menu for the following four items:
     *   Applications
@@ -54,116 +54,107 @@ After installing DavidOS, the system will initially have the default look. To un
 
 **Done!** Your desktop will now transform into the classic Windows 95 look. Enjoy DavidOS!
 
-<!-- DARK MODE SWITCHER CODE - START -->
+<!-- ======================================================================================================================= -->
+<!-- ============================================= START OF ALL CUSTOM CODE ================================================ -->
+<!-- ======================================================================================================================= -->
+
+<!-- DARK MODE SWITCHER STYLES -->
 <style>
     /* --- GRUNDEINSTELLUNGEN (für Light & Dark Mode) --- */
     body {
-        transition: background-color 0.3s, color 0.3s; /* Sanfter Übergang */
+        transition: background-color 0.3s, color 0.3s;
     }
     .wrapper {
-        transition: background-color 0.3s, border-color 0.3s; /* Sanfter Übergang für den Kasten */
+        transition: background-color 0.3s, border-color 0.3s;
     }
     .theme-switcher {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 8px 12px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 14px;
-        z-index: 1000;
+        position: fixed; bottom: 20px; right: 20px;
+        padding: 8px 12px; border-radius: 20px; cursor: pointer;
+        font-size: 14px; z-index: 1000;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
         transition: background-color 0.3s, color 0.3s;
     }
-
-    /* --- LIGHT MODE (Standard) --- */
     .theme-switcher {
-        background-color: #f0f0f0;
-        color: #333;
-        border: 1px solid #ddd;
+        background-color: #f0f0f0; color: #333; border: 1px solid #ddd;
     }
-
-    /* --- DARK MODE REGELN --- */
     body.dark-mode {
-        background-color: #0d1117; /* Dunkler GitHub-Hintergrund */
-        color: #c9d1d9; /* Heller GitHub-Text */
+        background-color: #0d1117; color: #c9d1d9;
     }
     body.dark-mode .wrapper {
-        background-color: #161b22; /* Etwas hellerer Kasten-Hintergrund */
-        border: 1px solid #30363d; /* Dezenter Rand für den Kasten */
-        box-shadow: none;
+        background-color: #161b22; border: 1px solid #30363d; box-shadow: none;
     }
     body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
-        color: #58a6ff; /* Blau für Überschriften */
-        border-bottom-color: #30363d; /* Passende Farbe für die Trennlinien */
+        color: #58a6ff; border-bottom-color: #30363d;
     }
     body.dark-mode p, body.dark-mode li, body.dark-mode span {
-        color: #c9d1d9; /* Stellt sicher, dass aller Fließtext hell ist */
+        color: #c9d1d9;
     }
     body.dark-mode a {
-        color: #58a6ff; /* Blau für Links */
-        font-weight: bold; /* Macht Links etwas auffälliger */
+        color: #58a6ff; font-weight: bold;
     }
     body.dark-mode code {
-        background-color: #313843; /* Dunklerer Hintergrund für Inline-Code */
+        background-color: #313843;
     }
     body.dark-mode pre {
-        background-color: #161b22; /* Hintergrund für Code-Blöcke, passend zum Kasten */
-        border: 1px solid #30363d;
+        background-color: #161b22; border: 1px solid #30363d;
     }
     body.dark-mode hr {
-        border-color: #30363d; /* Trennlinien-Farbe */
+        border-color: #30363d;
     }
     body.dark-mode .theme-switcher {
-        background-color: #222;
-        color: #fff;
-        border: 1px solid #444;
+        background-color: #222; color: #fff; border: 1px solid #444;
     }
 </style>
 
+<!-- DARK MODE SWITCHER HTML -->
 <div id="theme-switch" class="theme-switcher">
     🌙 Dark Mode
 </div>
 
+<!-- DARK MODE SWITCHER SCRIPT -->
 <script>
     (function() {
         const themeSwitch = document.getElementById('theme-switch');
         const body = document.body;
 
-        function toggleTheme() {
-            body.classList.toggle('dark-mode');
-            if (body.classList.contains('dark-mode')) {
-                if (canStoreThemeChoice()) { localStorage.setItem('theme', 'dark'); }
-                themeSwitch.textContent = '☀️ Light Mode';
-            } else {
-                if (canStoreThemeChoice()) { localStorage.setItem('theme', 'light'); }
-                themeSwitch.textContent = '🌙 Dark Mode';
+        // Diese Funktion wird jetzt von zwei Stellen aufgerufen
+        function applyInitialTheme() {
+            // Prüft, ob die Zustimmung zum Speichern gegeben wurde
+            if (window.canStoreThemeChoice && window.canStoreThemeChoice()) {
+                const currentTheme = localStorage.getItem('theme');
+                if (currentTheme === 'dark') {
+                    body.classList.add('dark-mode');
+                    themeSwitch.textContent = '☀️ Light Mode';
+                }
             }
         }
 
-        // Nur das Theme laden, wenn die Zustimmung gegeben wurde
-        if (canStoreThemeChoice()) {
-            const currentTheme = localStorage.getItem('theme');
-            if (currentTheme === 'dark') {
-                body.classList.add('dark-mode');
-                themeSwitch.textContent = '☀️ Light Mode';
+        // Wir machen die Funktion global verfügbar, damit das Cookie-Banner sie finden kann
+        window.applyThemeAfterConsent = applyInitialTheme;
+
+        function toggleTheme() {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            
+            if (window.canStoreThemeChoice && window.canStoreThemeChoice()) {
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
             }
+            
+            themeSwitch.textContent = isDarkMode ? '☀️ Light Mode' : '🌙 Dark Mode';
         }
+
+        // Führe die Funktion beim ersten Laden der Seite aus
+        applyInitialTheme();
 
         themeSwitch.addEventListener('click', toggleTheme);
     })();
 </script>
-<!-- DARK MODE SWITCHER CODE - END -->
 
-<!-- CODE FÜR COPY-BUTTONS - START -->
+<!-- COPY-BUTTONS SCRIPT -->
 <script>
-// Funktion, um die Buttons zu erstellen
 function addCopyButtons() {
-    // Finde alle Code-Blöcke auf der Seite
     const codeBlocks = document.querySelectorAll('pre');
-
     codeBlocks.forEach(block => {
-        // Erstelle den Button
         const button = document.createElement('button');
         button.innerText = 'Copy';
         button.style.position = 'absolute';
@@ -177,30 +168,21 @@ function addCopyButtons() {
         button.style.borderRadius = '4px';
         button.style.cursor = 'pointer';
         button.style.opacity = '0.7';
-
-        // Mache den Container relativ, damit der Button positioniert werden kann
         block.style.position = 'relative';
         block.appendChild(button);
-
-        // Füge die Klick-Funktion hinzu
         button.addEventListener('click', () => {
             const code = block.querySelector('code').innerText;
             navigator.clipboard.writeText(code).then(() => {
                 button.innerText = 'Copied!';
-                setTimeout(() => {
-                    button.innerText = 'Copy';
-                }, 2000); // Text nach 2 Sekunden zurücksetzen
+                setTimeout(() => { button.innerText = 'Copy'; }, 2000);
             });
         });
     });
 }
-
-// Führe die Funktion aus, sobald die Seite geladen ist
 window.addEventListener('load', addCopyButtons);
 </script>
-<!-- CODE FÜR COPY-BUTTONS - END -->
 
-<!-- ECHTES COOKIE-BANNER (MODAL) - START -->
+<!-- COOKIE CONSENT MODAL STYLES -->
 <style>
   .cc-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -225,6 +207,7 @@ window.addEventListener('load', addCopyButtons);
   .cc-btn-decline { background-color: #444; color: #eee; }
 </style>
 
+<!-- COOKIE CONSENT MODAL HTML -->
 <div id="cookie-consent-modal" class="cc-overlay" style="display: none;">
   <div class="cc-modal">
     <h2>Your Privacy Matters</h2>
@@ -241,9 +224,9 @@ window.addEventListener('load', addCopyButtons);
   </div>
 </div>
 
-
+<!-- COOKIE CONSENT MODAL SCRIPT -->
 <script>
-  // Diese Funktion wird jetzt global gebraucht, damit der Dark-Mode-Switcher sie aufrufen kann
+  // Diese Funktion wird global gebraucht, damit der Dark-Mode-Switcher sie aufrufen kann
   function canStoreThemeChoice() {
     return localStorage.getItem('cookieConsent') === 'accepted';
   }
@@ -266,6 +249,10 @@ window.addEventListener('load', addCopyButtons);
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
       hideModal();
+      // Signal an den Dark-Mode-Code senden, dass er sich aktualisieren soll
+      if (window.applyThemeAfterConsent) {
+        window.applyThemeAfterConsent();
+      }
     });
 
     declineBtn.addEventListener('click', () => {
@@ -276,4 +263,3 @@ window.addEventListener('load', addCopyButtons);
     });
   })();
 </script>
-<!-- ECHTES COOKIE-BANNER (MODAL) - END -->
