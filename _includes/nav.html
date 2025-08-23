@@ -1,8 +1,0 @@
-{%- assign pages_by_title = site.html_pages | sort: "title" -%}
-<ul>
-  {% for page in pages_by_title %}
-    {% if page.title and page.main_nav != false %}
-      <li><a href="{{ page.url | relative_url }}" {% if page.url == page.url %}class="active"{% endif %}>{{ page.title }}</a></li>
-    {% endif %}
-  {% endfor %}
-</ul>
