@@ -1,0 +1,85 @@
+<!-- 1. CSS: Das Aussehen unseres Banners -->
+<style>
+  #theme-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    display: none; /* Standardmäßig versteckt */
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.5);
+  }
+  #theme-banner p {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+  }
+  .banner-button {
+    padding: 8px 15px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    margin: 0 5px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .banner-button:hover {
+    background-color: white;
+    color: #333;
+  }
+</style>
+
+<!-- 2. HTML: Die Struktur unseres Banners -->
+<div id="theme-banner">
+  <p>Choose your preferred theme:</p>
+  <button id="light-mode-btn" class="banner-button">Light Mode</button>
+  <button id="dark-mode-btn" class="banner-button">Dark Mode</button>
+</div>
+
+<!-- 3. JavaScript: Die Logik hinter dem Banner -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('theme-banner');
+    const lightBtn = document.getElementById('light-mode-btn');
+    const darkBtn = document.getElementById('dark-mode-btn');
+    const body = document.body;
+
+    // Funktion, um das Theme zu setzen
+    function setTheme(theme) {
+      if (theme === 'dark') {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+      }
+      // Speichere die Wahl des Benutzers
+      localStorage.setItem('themeChoice', theme);
+      // Verstecke das Banner
+      banner.style.display = 'none';
+    }
+
+    // Event Listener für die Buttons
+    lightBtn.addEventListener('click', function() {
+      setTheme('light');
+    });
+
+    darkBtn.addEventListener('click', function() {
+      setTheme('dark');
+    });
+
+    // Prüfe, ob der Benutzer schon eine Wahl getroffen hat
+    const userChoice = localStorage.getItem('themeChoice');
+    if (!userChoice) {
+      // Wenn keine Wahl getroffen wurde, zeige das Banner
+      banner.style.display = 'block';
+    } else {
+        // Wenn schon eine Wahl getroffen wurde, setze das Theme entsprechend
+        // (Diese Logik wird vom Theme selbst übernommen, wir müssen hier nichts tun)
+    }
+  });
+</script>
