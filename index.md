@@ -55,65 +55,71 @@ After installing DavidOS, the system will initially have the default look. To un
 **Done!** Your desktop will now transform into the classic Windows 95 look. Enjoy DavidOS!
 
 <style>
-    /* Das Aussehen des Schalters */
+    /* --- GRUNDEINSTELLUNGEN (für Light & Dark Mode) --- */
+    body {
+        transition: background-color 0.3s, color 0.3s; /* Sanfter Übergang */
+    }
+    .wrapper {
+        transition: background-color 0.3s, border-color 0.3s; /* Sanfter Übergang für den Kasten */
+    }
     .theme-switcher {
         position: fixed;
         bottom: 20px;
         right: 20px;
         padding: 8px 12px;
-        background-color: #222;
-        color: #fff;
-        border: 1px solid #444;
         border-radius: 20px;
         cursor: pointer;
         font-size: 14px;
         z-index: 1000;
         font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    /* --- LIGHT MODE (Standard) --- */
+    .theme-switcher {
+        background-color: #f0f0f0;
+        color: #333;
+        border: 1px solid #ddd;
     }
 
     /* --- DARK MODE REGELN --- */
-
-    /* Allgemeiner Hintergrund und Standard-Textfarbe */
     body.dark-mode {
-        background-color: #0d1117;
-        color: #c9d1d9; /* Helle Standard-Textfarbe */
+        background-color: #0d1117; /* Dunkler GitHub-Hintergrund */
+        color: #c9d1d9; /* Heller GitHub-Text */
     }
-
-    /* NEU: Spezifische Regel für Absätze und Listenelemente */
-    body.dark-mode p, body.dark-mode li {
-        color: #c9d1d9 !important; /* WICHTIG: Erzwingt die helle Farbe */
-    }
-
-    /* Der weiße Kasten in der Mitte */
     body.dark-mode .wrapper {
-        background-color: #161b22;
-        border-color: #30363d;
+        background-color: #161b22; /* Etwas hellerer Kasten-Hintergrund */
+        border: 1px solid #30363d; /* Dezenter Rand für den Kasten */
         box-shadow: none;
     }
-
-    /* Überschriften */
     body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
-        color: #58a6ff; /* Blau für die Überschriften */
+        color: #58a6ff; /* Blau für Überschriften */
+        border-bottom-color: #30363d; /* Passende Farbe für die Trennlinien */
     }
-
-    /* Links */
+    body.dark-mode p, body.dark-mode li, body.dark-mode span {
+        color: #c9d1d9; /* Stellt sicher, dass aller Fließtext hell ist */
+    }
     body.dark-mode a {
-        color: #58a6ff; /* Blau für die Links */
+        color: #58a6ff; /* Blau für Links */
+        font-weight: bold; /* Macht Links etwas auffälliger */
     }
-
-    /* Code-Blöcke */
-    body.dark-mode code, body.dark-mode pre {
-        background-color: #2c323a;
-        color: #c9d1d9; /* NEU: Stellt sicher, dass auch Code hell ist */
+    body.dark-mode code {
+        background-color: #313843; /* Dunklerer Hintergrund für Inline-Code */
     }
-    
-    /* Der Schalter selbst im Dark Mode */
+    body.dark-mode pre {
+        background-color: #161b22; /* Hintergrund für Code-Blöcke, passend zum Kasten */
+        border: 1px solid #30363d;
+    }
+    body.dark-mode hr {
+        border-color: #30363d; /* Trennlinien-Farbe */
+    }
     body.dark-mode .theme-switcher {
-        background-color: #f0f0f0;
-        color: #222;
-        border-color: #ddd;
+        background-color: #222;
+        color: #fff;
+        border: 1px solid #444;
     }
 </style>
+
 
 
 <div id="theme-switch" class="theme-switcher">
