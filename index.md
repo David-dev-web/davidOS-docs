@@ -10,7 +10,7 @@ DavidOS is an Ubuntu-based operating system that combines the stability and secu
 
 ## Download DavidOS v1.0
 
-[**CLICK HERE TO GO TO THE DOWNLOAD PAGE**](https://github.com/David-dev-web/davidos-docs/releases/latest )
+[**CLICK HERE TO GO TO THE DOWNLOAD PAGE**](https://github.com/David-dev-web/davidos-docs/releases/latest  )
 
 *This will take you to the latest release on GitHub where you can download the necessary files.*
 
@@ -44,7 +44,7 @@ After installing DavidOS, the system will initially have the default look. To un
 
 ### Step 3: Activate the Theme
 
-1.  Open the **"Tweaks"** application (search for "Optimierungen" or "Tweaks"  ).
+1.  Open the **"Tweaks"** application (search for "Optimierungen" or "Tweaks"   ).
 2.  Go to the **"Extensions"** tab and switch **"User themes"** to **ON**.
 3.  Go to the **"Appearance"** tab. Now, select **`Chicago95`** from the dropdown menu for the following four items:
     *   Applications
@@ -54,6 +54,7 @@ After installing DavidOS, the system will initially have the default look. To un
 
 **Done!** Your desktop will now transform into the classic Windows 95 look. Enjoy DavidOS!
 
+<!-- DARK MODE SWITCHER CODE - START -->
 <style>
     /* --- GRUNDEINSTELLUNGEN (für Light & Dark Mode) --- */
     body {
@@ -120,8 +121,6 @@ After installing DavidOS, the system will initially have the default look. To un
     }
 </style>
 
-
-
 <div id="theme-switch" class="theme-switcher">
     🌙 Dark Mode
 </div>
@@ -134,18 +133,21 @@ After installing DavidOS, the system will initially have the default look. To un
         function toggleTheme() {
             body.classList.toggle('dark-mode');
             if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
+                if (canStoreThemeChoice()) { localStorage.setItem('theme', 'dark'); }
                 themeSwitch.textContent = '☀️ Light Mode';
             } else {
-                localStorage.setItem('theme', 'light');
+                if (canStoreThemeChoice()) { localStorage.setItem('theme', 'light'); }
                 themeSwitch.textContent = '🌙 Dark Mode';
             }
         }
 
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme === 'dark') {
-            body.classList.add('dark-mode');
-            themeSwitch.textContent = '☀️ Light Mode';
+        // Nur das Theme laden, wenn die Zustimmung gegeben wurde
+        if (canStoreThemeChoice()) {
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-mode');
+                themeSwitch.textContent = '☀️ Light Mode';
+            }
         }
 
         themeSwitch.addEventListener('click', toggleTheme);
@@ -274,4 +276,3 @@ window.addEventListener('load', addCopyButtons);
   })();
 </script>
 <!-- ECHTES COOKIE-BANNER (MODAL) - END -->
-
