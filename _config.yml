@@ -1,10 +1,6 @@
-# Site settings
-title: DavidOS Documentation
-description: "Installation instructions for DavidOS"
+# Wir wechseln zum stabilen, einfachen Theme
+theme: jekyll-theme-minimal
 
-
-# Footer content - WIR LASSEN DEN LINK HIER WEG, UM FEHLER ZU VERMEIDEN
-footer_content: "Copyright &copy; 2025 David. Distributed by an <a href=\"https://github.com/David-dev-web\">Indie OS Developer</a>."
-
-plugins:
-  - jekyll-seo-tag
+# Wir geben der Seite einen Titel
+title: DavidOS Documentation & Download
+description: The official installation guide and download page for DavidOS.
