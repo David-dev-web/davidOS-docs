@@ -3,7 +3,13 @@ name: Build and Deploy Jekyll Site
 on:
   push:
     branches:
-      - main  # Löst den Workflow bei jedem Push zum main-Branch aus
+      - main
+
+# HIER IST DIE MAGIE: Wir geben dem Workflow Schreibrechte
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build_and_deploy:
@@ -15,8 +21,8 @@ jobs:
       - name: Setup Ruby and Jekyll
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0' # Die Ruby-Version, die mit Jekyll kompatibel ist
-          bundler-cache: true # Installiert die Gems aus deinem Gemfile
+          ruby-version: '3.0'
+          bundler-cache: true
 
       - name: Build the site
         run: bundle exec jekyll build
