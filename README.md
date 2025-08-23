@@ -7,6 +7,6 @@ DavidOS is an Ubuntu-based operating system that combines the stability and secu
 ## Quick Links
 
 *   **[Visit the Official Website & Installation Guide](https://david-dev-web.github.io/davidOS-docs/ )**
-*   **[Go Directly to the Latest Download](https://github.com/David-dev-web/davidos-docs/releases/latest )**
+*   **[Go Directly to the Latest Release](https://github.com/David-dev-web/davidos-docs/releases/latest )**
 
 This project was created with passion for the retro computing community. Enjoy!
