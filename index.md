@@ -1,10 +1,16 @@
-# Welcome to DavidOS!
+---
+layout: default
+title: Welcome to DavidOS
+---
 
 DavidOS is an Ubuntu-based operating system that combines the stability and security of a modern Linux kernel with the classic, nostalgic aesthetic of Windows 95. It's the perfect system for anyone looking for a fast, reliable OS but who loves the iconic design of the 90s.
 
 ---
 
 ## IMPORTANT: How to activate the Chicago95 (Win95) Theme
+
+... (der Rest deines Textes bleibt gleich) ...
+
 
 After installing DavidOS, the system will initially have the default look. To unlock the full retro experience, please follow these simple steps.
 
