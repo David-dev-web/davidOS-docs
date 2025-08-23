@@ -41,63 +41,30 @@
   <button id="dark-mode-btn" class="banner-button">Dark Mode</button>
 </div>
 
-<!-- 3. JavaScript (FINALE VERSION mit besserem Kontrast) -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  function initializeThemeBanner() {
     const banner = document.getElementById('theme-banner');
     const lightBtn = document.getElementById('light-mode-btn');
     const darkBtn = document.getElementById('dark-mode-btn');
-    const body = document.body;
-    
-    // Wir wählen jetzt alle wichtigen Elemente aus
-    const mainContent = document.querySelector('.main-content');
-    const allHeaders = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-    const allLinks = document.querySelectorAll('a');
 
-    function setTheme(theme) {
-      if (theme === 'dark') {
-        // Hintergrund dunkel machen
-        body.style.backgroundColor = '#1e1e1e';
-        
-        // Haupttext hell machen
-        if(mainContent) {
-            mainContent.style.color = '#e0e0e0'; // Ein sanftes Weiß
-        }
-        
-        // Alle Überschriften hell machen
-        allHeaders.forEach(header => header.style.color = '#ffffff');
-        
-        // Alle Links hellblau machen, damit sie herausstechen
-        allLinks.forEach(link => link.style.color = '#68a0ff');
+    if (typeof jtd === 'undefined') {
+      console.error("Just the Docs theme script (jtd) not found.");
+      return;
+    }
 
-      } else { // Light Mode
-        // Alles wieder auf Standard zurücksetzen
-        body.style.backgroundColor = '#ffffff';
-        if(mainContent) {
-            mainContent.style.color = ''; // Leer = Browser-Standard (schwarz)
-        }
-        allHeaders.forEach(header => header.style.color = '');
-        allLinks.forEach(link => link.style.color = '');
-      }
-      
+    function chooseTheme(theme) {
+      jtd.setTheme(theme);
       localStorage.setItem('themeChoice', theme);
-      if(banner) {
-        banner.style.display = 'none';
-      }
+      banner.style.display = 'none';
     }
 
-    if(lightBtn) {
-        lightBtn.addEventListener('click', () => setTheme('light'));
-    }
-    if(darkBtn) {
-        darkBtn.addEventListener('click', () => setTheme('dark'));
-    }
+    lightBtn.addEventListener('click', () => chooseTheme('light'));
+    darkBtn.addEventListener('click', () => chooseTheme('dark'));
 
     const userChoice = localStorage.getItem('themeChoice');
-    if (!userChoice && banner) {
+    if (!userChoice) {
       banner.style.display = 'block';
-    } else if (userChoice) {
-      setTheme(userChoice);
     }
-  });
+  }
+  window.addEventListener('load', initializeThemeBanner);
 </script>
