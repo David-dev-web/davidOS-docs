@@ -198,5 +198,81 @@ window.addEventListener('load', addCopyButtons);
 </script>
 <!-- CODE FÜR COPY-BUTTONS - END -->
 
+<!-- MODAL POPUP CODE - START -->
+<style>
+  /* Der halb-transparente Hintergrund, der alles blockiert */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Dunkler, halb-transparenter Hintergrund */
+    z-index: 2999; /* Sehr hoher z-index, um über allem zu liegen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
+  /* Das eigentliche Popup-Fenster */
+  .modal-content {
+    background-color: #161b22; /* Passend zum Dark Mode Theme */
+    color: #c9d1d9;
+    padding: 25px 30px;
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+  }
+  .modal-content h2 {
+    color: #58a6ff;
+    margin-top: 0;
+  }
+  .modal-content p {
+    color: #c9d1d9 !important; /* Wichtig, um die Textfarbe zu erzwingen */
+    line-height: 1.6;
+  }
+  .modal-btn {
+    background-color: #58a6ff;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+</style>
+
+<div id="consent-modal" class="modal-overlay" style="display: none;">
+  <div class="modal-content">
+    <h2>Hinweis zur Datenspeicherung</h2>
+    <p>
+      Diese Webseite verwendet den <code>localStorage</code> deines Browsers, um deine Design-Auswahl (Light/Dark Mode) für zukünftige Besuche zu speichern. Es werden keine persönlichen Daten gesammelt oder Cookies von Drittanbietern gesetzt.
+    </p>
+    <button id="modal-accept-btn" class="modal-btn">Ich habe verstanden</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const modal = document.getElementById('consent-modal');
+    const acceptBtn = document.getElementById('modal-accept-btn');
+
+    // Prüfen, ob die Zustimmung bereits gegeben wurde
+    if (!localStorage.getItem('consentGiven')) {
+      modal.style.display = 'flex';
+    }
+
+    // Event-Listener für den Akzeptieren-Button
+    acceptBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      localStorage.setItem('consentGiven', 'true');
+    });
+  })();
+</script>
+<!-- MODAL POPUP CODE - END -->
 
