@@ -5,3 +5,6 @@ description: "Installation instructions for DavidOS"
 
 # Footer content - WIR LASSEN DEN LINK HIER WEG, UM FEHLER ZU VERMEIDEN
 footer_content: "Copyright &copy; 2025 David. Distributed by an <a href=\"https://github.com/David-dev-web\">Indie OS Developer</a>."
+
+plugins:
+  - jekyll-seo-tag
