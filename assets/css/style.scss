@@ -4,13 +4,63 @@
 
 /* === ANIMIERTER HEADER & GRUND-DESIGN === */
 .page-header {
-    /* ... dein animierter Header-Code ... */
+    padding: 5rem 6rem;
+    color: #fff;
+    text-align: center;
+    background-color: #159957;
+    background-image: linear-gradient(120deg, #155799, #159957);
+    
+    /* Die Magie der Animation */
+    background-size: 200% 200%;
+    animation: gradient-animation 10s ease infinite;
 }
+
 @keyframes gradient-animation {
-    /* ... dein Keyframe-Code ... */
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
+
 /* === DARK MODE REGELN === */
 body.dark-mode {
-    /* ... deine Dark-Mode-Regeln ... */
+    background-color: #0d1117;
+    color: #c9d1d9;
 }
-/* ... etc. ... */
+
+body.dark-mode .wrapper {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    box-shadow: none;
+}
+
+body.dark-mode .page-header {
+    filter: saturate(80%);
+}
+
+body.dark-mode .main-content {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    color: #c9d1d9;
+}
+
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6 {
+    color: #58a6ff;
+    border-bottom-color: #30363d;
+}
+
+body.dark-mode a {
+    color: #58a6ff;
+}
+
+body.dark-mode code {
+    background-color: #313843;
+}
+
+body.dark-mode pre {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+}
+
+body.dark-mode hr {
+    border-color: #30363d;
+}
