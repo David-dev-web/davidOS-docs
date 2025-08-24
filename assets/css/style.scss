@@ -1,0 +1,19 @@
+---
+---
+@import "{{ site.theme }}";
+
+/* === ANIMIERTER HEADER CODE START === */
+
+.page-header {
+  background: linear-gradient(120deg, #155799, #159957, #155799, #159957);
+  background-size: 400% 400%;
+  animation: AnimateGradient 15s ease infinite;
+}
+
+@keyframes AnimateGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === ANIMIERTER HEADER CODE ENDE === */
