@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Roadmap
+nav_order: 2
 ---
 
 ## 🚀 DavidOS Roadmap
