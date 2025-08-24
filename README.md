@@ -8,8 +8,8 @@ This repository hosts the official documentation website and download links for 
 
 ## 🚀 Quick Access
 
-*   **[Visit the Official Website & Installation Guide](https://david-dev-web.github.io/davidos-docs/ )**
-*   **[Go Directly to the Latest Release (Download)](https://github.com/David-dev-web/davidos-docs/releases/latest )**
+*   **[Visit the Official Website & Installation Guide](https://david-dev-web.github.io/davidOS-docs/ )**
+*   **[Go Directly to the Latest Release (Download)](https://github.com/David-dev-web/davidOS-docs/releases/latest )**
 
 ---
 
