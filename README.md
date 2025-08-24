@@ -1,12 +1,24 @@
-# DavidOS Documentation & Download
+# DavidOS - Documentation & Download
 
-This repository contains the official documentation website and the download links for DavidOS.
+![DavidOS Screenshot](https://raw.githubusercontent.com/David-dev-web/David-dev-web/main/DavidOS-Screenshot.png )
 
-DavidOS is an Ubuntu-based operating system that combines the stability and security of a modern Linux kernel with the classic, nostalgic aesthetic of Windows 95.
+This repository hosts the official documentation website and download links for **DavidOS**, an Ubuntu-based operating system that combines the stability of a modern Linux kernel with the classic, nostalgic aesthetic of Windows 95.
 
-## Quick Links
+---
+
+## 🚀 Quick Access
 
 *   **[Visit the Official Website & Installation Guide](https://david-dev-web.github.io/davidOS-docs/ )**
-*   **[Go Directly to the Latest Release](https://github.com/David-dev-web/davidos-docs/releases/latest )**
+*   **[Go Directly to the Latest Release (Download)](https://github.com/David-dev-web/davidOS-docs/releases/latest )**
 
-This project was created with passion for the retro computing community. Enjoy! 
+---
+
+## 🎯 Project Status
+
+This project is actively maintained. You can follow the development progress and future plans on our official roadmap.
+
+*   **[View the Project Roadmap](https://david-dev-web.github.io/davidos-docs/#-davidos-roadmap )**
+
+---
+
+This project was created with passion for the retro computing community. Enjoy!
