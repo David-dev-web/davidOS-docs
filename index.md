@@ -72,20 +72,7 @@ This is a living document that outlines the future plans for DavidOS. Ideas and 
 
 ---
 
-<!-- DARK MODE SWITCHER CODE - START -->
-<style>
-    .theme-switcher {
-        position: fixed; bottom: 20px; right: 20px;
-        padding: 8px 12px; border-radius: 20px; cursor: pointer;
-        font-size: 14px; z-index: 1000;
-        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-        background-color: #f0f0f0; color: #333; border: 1px solid #ddd;
-        transition: all 0.3s;
-    }
-    body.dark-mode .theme-switcher {
-        background-color: #222; color: #fff; border: 1px solid #444;
-    }
-</style>
+
 <div id="theme-switch" class="theme-switcher">🌙 Dark Mode</div>
 <script>
   // Diese Funktion muss global sein, damit das Cookie-Skript sie finden kann.
@@ -169,29 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- CODE FÜR COPY-BUTTONS - END -->
 
 <!-- ECHTES COOKIE-BANNER (MODAL) - START -->
-<style>
-  .cc-overlay {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 2999; display: flex; justify-content: center; align-items: center;
-  }
-  .cc-modal {
-    background-color: #161b22; color: #c9d1d9; padding: 25px 30px;
-    border-radius: 8px; border: 1px solid #30363d;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
-    max-width: 550px; width: 90%; text-align: left;
-  }
-  .cc-modal h2 { color: #58a6ff; margin-top: 0; }
-  .cc-modal p { color: #c9d1d9 !important; line-height: 1.6; }
-  .cc-modal code { background-color: #313843; padding: 2px 4px; border-radius: 3px; }
-  .cc-buttons { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
-  .cc-btn {
-    border: none; padding: 10px 20px; border-radius: 5px;
-    cursor: pointer; font-weight: bold; font-size: 14px;
-  }
-  .cc-btn-accept { background-color: #58a6ff; color: #fff; }
-  .cc-btn-decline { background-color: #444; color: #eee; }
-</style>
+
 <div id="cookie-consent-modal" class="cc-overlay" style="display: none;">
   <div class="cc-modal">
     <h2>Your Privacy Matters</h2>
