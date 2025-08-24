@@ -13,12 +13,4 @@ This repository hosts the official documentation website and download links for 
 
 ---
 
-## 🎯 Project Status
-
-This project is actively maintained. You can follow the development progress and future plans on our official roadmap.
-
-*   **[View the Project Roadmap](https://david-dev-web.github.io/davidos-docs/#-davidos-roadmap )**
-
----
-
 This project was created with passion for the retro computing community. Enjoy!
