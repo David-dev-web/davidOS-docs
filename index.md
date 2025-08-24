@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Welcome to DavidOS
+title: Home
 nav_order: 1
 ---
 
