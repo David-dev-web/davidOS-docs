@@ -1,9 +1,11 @@
-# Wir wechseln zum stabilen, einfachen Theme
 theme: jekyll-theme-cayman
-
-# Wir geben der Seite einen Titel
-title: DavidOS Documentation & Download
+title: Welcome to DavidOS
 description: The official installation guide and download page for DavidOS.
-# Wir fügen diesen Kommentar hinzu, um den Cache von GitHub zu leeren.
-# Zeitstempel: [24.08.2025 00:06]
 show_header_links: true
+header_links:
+  - title: Home
+    url: /davidOS-docs/
+  - title: Roadmap
+    url: /davidOS-docs/roadmap
+  - title: About Me
+    url: /davidOS-docs/about
