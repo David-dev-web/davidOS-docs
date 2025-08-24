@@ -1,15 +1,3 @@
+theme: jekyll-theme-minimal
 title: DavidOS
 description: The official installation guide and download page for DavidOS.
-theme: just-the-docs
-url: "https://David-dev-web.github.io/davidOS-docs"
-
-aux_links:
-  "DavidOS on GitHub":
-    - "https://github.com/David-dev-web/davidos-docs"
-
-color_scheme: dark
-
-callouts:
-  warning:
-    title: Warning
-    color: red
