@@ -9,6 +9,91 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
   </head>
+  <!-- ECHTES COOKIE-BANNER (MODAL) - START -->
+<style>
+  .cc-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 2999; display: flex; justify-content: center; align-items: center;
+  }
+  .cc-modal {
+    background-color: #161b22; color: #c9d1d9; padding: 25px 30px;
+    border-radius: 8px; border: 1px solid #30363d;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+    max-width: 550px; width: 90%; text-align: left;
+  }
+  .cc-modal h2 { color: #58a6ff; margin-top: 0; }
+  .cc-modal p { color: #c9d1d9 !important; line-height: 1.6; }
+  .cc-modal code { background-color: #313843; padding: 2px 4px; border-radius: 3px; }
+  .cc-buttons { margin-top: 20px; display: flex; justify-content: flex-end; gap: 10px; }
+  .cc-btn {
+    border: none; padding: 10px 20px; border-radius: 5px;
+    cursor: pointer; font-weight: bold; font-size: 14px;
+  }
+  .cc-btn-accept { background-color: #58a6ff; color: #fff; }
+  .cc-btn-decline { background-color: #444; color: #eee; }
+</style>
+
+<div id="cookie-consent-modal" class="cc-overlay" style="display: none;">
+  <div class="cc-modal">
+    <h2>Your Privacy Matters</h2>
+    <p>
+      This website uses your browser's <code>localStorage</code> to enhance your experience by remembering your theme choice (Light/Dark Mode).
+    </p>
+    <p>
+      By clicking <b>"Accept"</b>, you consent to this storage. If you <b>"Decline"</b>, your choice will not be saved, and the site will load with the default theme on each visit.
+    </p>
+    <div class="cc-buttons">
+      <button id="cc-btn-decline" class="cc-btn cc-btn-decline">Decline</button>
+      <button id="cc-btn-accept" class="cc-btn cc-btn-accept">Accept</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function canStoreThemeChoice() {
+    return localStorage.getItem('cookieConsent') === 'accepted';
+  }
+
+  function applyThemeAfterConsent() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+      const themeSwitch = document.getElementById('theme-switch');
+      if (themeSwitch) {
+        themeSwitch.textContent = '☀️ Light Mode';
+      }
+    }
+  }
+
+  (function() {
+    const modal = document.getElementById('cookie-consent-modal');
+    const acceptBtn = document.getElementById('cc-btn-accept');
+    const declineBtn = document.getElementById('cc-btn-decline');
+
+    function hideModal() {
+      modal.style.display = 'none';
+    }
+
+    if (!localStorage.getItem('cookieConsent')) {
+      modal.style.display = 'flex';
+    }
+
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'accepted');
+      hideModal();
+      applyThemeAfterConsent();
+    });
+
+    declineBtn.addEventListener('click', () => {
+      localStorage.setItem('cookieConsent', 'declined');
+      localStorage.removeItem('theme');
+      hideModal();
+    });
+  })();
+</script>
+<!-- ECHTES COOKIE-BANNER (MODAL) - END -->
+
   <body>
     <header class="page-header" role="banner">
       <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
