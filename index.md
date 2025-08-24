@@ -57,9 +57,9 @@ After installing DavidOS, the system will initially have the default look. To un
 This is a living document that outlines the future plans for DavidOS. Ideas and contributions are always welcome!
 
 ### Version 1.1 (Short-Term)
-* [ ] **Bug Fixes:** Address any reported issues from the initial release.
-* [ ] **Pre-installed Applications:** Add a curated selection of useful, lightweight applications.
-* [ ] **Theme Enhancements:** Integrate more icons and improve theme consistency.
+* [x] **Bug Fixes:** Address any reported issues from the initial release.
+* [x] **Pre-installed Applications:** Add a curated selection of useful, lightweight applications.
+* [x] **Theme Enhancements:** Integrate more icons and improve theme consistency.
 
 ### Version 2.0 (Mid-Term)
 * [ ] **Custom Welcome Screen:** Develop a unique welcome application.
