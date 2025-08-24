@@ -1,3 +1,5 @@
+
+
 DavidOS is an Ubuntu-based operating system that combines the stability and security of a modern Linux kernel with the classic, nostalgic aesthetic of Windows 95. It's the perfect system for anyone looking for a fast, reliable OS but who loves the iconic design of the 90s.
 
 ---
@@ -86,47 +88,57 @@ This is a living document that outlines the future plans for DavidOS. Ideas and 
 </style>
 <div id="theme-switch" class="theme-switcher">🌙 Dark Mode</div>
 <script>
-    (function() {
-        const themeSwitch = document.getElementById('theme-switch');
-        const body = document.body;
+  // Diese Funktion muss global sein, damit das Cookie-Skript sie finden kann.
+  function canStoreThemeChoice() {
+    return localStorage.getItem('cookieConsent') === 'accepted';
+  }
 
-        function applyTheme(theme) {
-            if (theme === 'dark') {
-                body.classList.add('dark-mode');
-                themeSwitch.textContent = '☀️ Light Mode';
-            } else {
-                body.classList.remove('dark-mode');
-                themeSwitch.textContent = '🌙 Dark Mode';
-            }
-        }
+  // Diese Funktion wird auch global benötigt.
+  window.applyThemeAfterConsent = function() {
+    if (canStoreThemeChoice()) {
+      const savedTheme = localStorage.getItem('theme');
+      const body = document.body;
+      const themeSwitch = document.getElementById('theme-switch');
+      if (savedTheme === 'dark') {
+        body.classList.add('dark-mode');
+        if(themeSwitch) themeSwitch.textContent = '☀️ Light Mode';
+      } else {
+        body.classList.remove('dark-mode');
+        if(themeSwitch) themeSwitch.textContent = '🌙 Dark Mode';
+      }
+    }
+  }
 
-        function toggleTheme() {
-            const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
-            applyTheme(newTheme);
-            if (canStoreThemeChoice()) {
-                localStorage.setItem('theme', newTheme);
-            }
-        }
-        
-        window.applyThemeAfterConsent = function() {
-            if (canStoreThemeChoice()) {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme) {
-                    applyTheme(savedTheme);
-                }
-            }
-        }
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeSwitch = document.getElementById('theme-switch');
+    const body = document.body;
 
-        applyThemeAfterConsent();
+    function toggleTheme() {
+      body.classList.toggle('dark-mode');
+      const newTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      
+      if (body.classList.contains('dark-mode')) {
+        themeSwitch.textContent = '☀️ Light Mode';
+      } else {
+        themeSwitch.textContent = '🌙 Dark Mode';
+      }
 
-        themeSwitch.addEventListener('click', toggleTheme);
-    })();
+      if (canStoreThemeChoice()) {
+        localStorage.setItem('theme', newTheme);
+      }
+    }
+
+    // Führe die Funktion direkt beim Laden aus, falls die Zustimmung schon da ist
+    applyThemeAfterConsent();
+
+    themeSwitch.addEventListener('click', toggleTheme);
+  });
 </script>
 <!-- DARK MODE SWITCHER CODE - END -->
 
 <!-- CODE FÜR COPY-BUTTONS - START -->
 <script>
-function addCopyButtons() {
+document.addEventListener('DOMContentLoaded', function() {
     const codeBlocks = document.querySelectorAll('pre');
     codeBlocks.forEach(block => {
         const button = document.createElement('button');
@@ -152,8 +164,7 @@ function addCopyButtons() {
             });
         });
     });
-}
-window.addEventListener('load', addCopyButtons);
+});
 </script>
 <!-- CODE FÜR COPY-BUTTONS - END -->
 
@@ -197,19 +208,19 @@ window.addEventListener('load', addCopyButtons);
   </div>
 </div>
 <script>
-  function canStoreThemeChoice() {
-    return localStorage.getItem('cookieConsent') === 'accepted';
-  }
-  (function() {
+  document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('cookie-consent-modal');
     const acceptBtn = document.getElementById('cc-btn-accept');
     const declineBtn = document.getElementById('cc-btn-decline');
+
     function hideModal() {
       modal.style.display = 'none';
     }
+
     if (!localStorage.getItem('cookieConsent')) {
       modal.style.display = 'flex';
     }
+
     acceptBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'accepted');
       hideModal();
@@ -217,11 +228,12 @@ window.addEventListener('load', addCopyButtons);
         window.applyThemeAfterConsent();
       }
     });
+
     declineBtn.addEventListener('click', () => {
       localStorage.setItem('cookieConsent', 'declined');
       localStorage.removeItem('theme');
       hideModal();
     });
-  })();
+  });
 </script>
 <!-- ECHTES COOKIE-BANNER (MODAL) - END -->
