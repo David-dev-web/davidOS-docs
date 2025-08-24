@@ -1,19 +1,15 @@
-# Willkommen bei Jekyll!
-#
-# Dieses Konfigurationsfile ist für Einstellungen, die das ganze Blog betreffen.
-# Für eine komplette Liste aller Optionen, siehe: https://jekyllrb.com/docs/configuration/
-# Für eine Erklärung der Optionen von Just the Docs, siehe: https://just-the-docs.github.io/just-the-docs/
-
-# Basis-Setup
 title: DavidOS
 description: The official installation guide and download page for DavidOS.
-url: "https://David-dev-web.github.io" # die Basis-URL deiner Seite
-baseurl: "/davidOS-docs" # der Name deines Repositories
-
-# Theme und Plugins
 theme: just-the-docs
+url: "https://David-dev-web.github.io/davidOS-docs"
 
-# Navigation (optional, wird aber für die Leiste oben empfohlen )
 aux_links:
   "DavidOS on GitHub":
     - "https://github.com/David-dev-web/davidos-docs"
+
+color_scheme: dark
+
+callouts:
+  warning:
+    title: Warning
+    color: red
