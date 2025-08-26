@@ -237,3 +237,16 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 </script>
 <!-- ECHTES COOKIE-BANNER (MODAL) - END -->
+
+<audio id="startup-sound" src="assets/windows95-startup.wav" preload="auto"></audio>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('startup-sound');
+    const playSound = () => {
+      audio.play().catch(() => {});
+      document.removeEventListener('click', playSound);
+    };
+    document.addEventListener('click', playSound);
+  });
+</script>
