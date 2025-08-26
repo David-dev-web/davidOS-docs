@@ -238,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <!-- ECHTES COOKIE-BANNER (MODAL) - END -->
 
-<audio id="startup-sound" src="assets/windows95-startup.wav" preload="auto"></audio>
+<audio id="startup-sound" src="https://raw.githubusercontent.com/David-dev-web/davidOS-docs/main/assets/css/windows95-startup.wav" preload="auto"></audio>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
