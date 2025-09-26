@@ -25,7 +25,7 @@ After installing DavidOS, the system will initially have the default look. To un
     git clone https://github.com/grassmunk/Chicago95.git
     ```
     ```bash
-    cd Chicago95 && python3 install.py
+    cd Chicago95 && /.install.sh
     ```
 3.  Follow the instructions of the installer. You can simply press **Enter** for most questions.
 
